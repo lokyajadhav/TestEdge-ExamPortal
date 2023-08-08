@@ -1,0 +1,9 @@
+<span *ngIf="text.length<= words">{{text}}</span>
+
+<span *ngIf="text.length> words && !seeMore">
+    {{text.substring(0,words)}}... <span (click)="seeMore = true" style="cursor: pointer;"><b>See More</b></span>
+</span>
+
+<div >
+    <span *ngIf="text.length> words && seeMore">{{text}}... <span (click)="seeMore=false" style="cursor: pointer;"><b>See Less</b></span></span>
+</div>

@@ -1,0 +1,106 @@
+<div class="bootstrap-wrapper" >
+    <div class="container mt-2">
+        <div class="d-flex justify-content-between">
+            <div >
+                <h1>Edit Question</h1>
+            </div>
+            <div>
+                <button mat-mini-fab color="war" type="button" (click)="close()"><mat-icon>close</mat-icon></button>
+    
+            </div>
+        </div>
+        <mat-divider style="background-color: rgb(100, 17, 255);"></mat-divider>
+        <div class="container mt-5" style="width: 70%;">
+            <div>
+                <p class="opacity-50">You can edit Question here.
+                </p>
+            </div>
+            <div>
+                
+                <form [formGroup]="editQuestionForm" (ngSubmit)="editQuestion()" mat-dialog-content>
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>Question ID</mat-label>
+                        <input matInput placeholder="Question ID" formControlName="id" readonly="true">
+                        <mat-error *ngIf="editQuestionForm.get('id')?.hasError('required')">Question Id required!</mat-error>
+                        <mat-error *ngIf="editQuestionForm.get('id')?.hasError('minlength')">minimun 10 digits required!</mat-error>
+                        <mat-error *ngIf="editQuestionForm.get('id')?.hasError('maxlength')">Max 10 digits alloweedit</mat-error>
+                                    
+
+                    </mat-form-field>
+                    <!-- <mat-form-field appearance="outline" class="about-section" >
+                        <mat-label>Question Description</mat-label>
+                        <mat-error *ngIf="editQuestionForm.get('content')?.hasError('required')">Question Description required!</mat-error>
+
+                
+                    </mat-form-field> -->
+                    <ckeditor [editor]="Editor" data="<p>Hello, world!</p>" formControlName="content"></ckeditor>
+
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>first_option</mat-label>
+                        <input matInput placeholder="first_option" formControlName="option_A" >
+                        <mat-error *ngIf="editQuestionForm.get('option_A')?.hasError('required')">Option_A required!</mat-error>
+
+                
+                    </mat-form-field>
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>second_option</mat-label>
+                        <input matInput placeholder="second_option" formControlName="option_B" >
+                        <mat-error *ngIf="editQuestionForm.get('option_B')?.hasError('required')">Option_B required!</mat-error>
+
+                
+                    </mat-form-field>
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>third_option</mat-label>
+                        <input matInput placeholder="third_option" formControlName="option_C" >
+                        <mat-error *ngIf="editQuestionForm.get('option_C')?.hasError('required')">Option_C required!</mat-error>
+
+                
+                    </mat-form-field>
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>last_option</mat-label>
+                        <input matInput placeholder="last_option" formControlName="option_D" >
+                        <mat-error *ngIf="editQuestionForm.get('option_D')?.hasError('required')">Option_D required!</mat-error>
+
+                
+                    </mat-form-field>
+                
+                    
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>Correct Answer</mat-label>
+                        <input matInput placeholder="correct_answer" type="text" formControlName="correct_answer" >
+                        <mat-error *ngIf="editQuestionForm.get('correct_answer')?.hasError('required')">correct_answer required!</mat-error>
+
+                
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Quiz </mat-label>
+                        <mat-select formControlName="quiz_id">
+                          <mat-option value="" disabled="true">Move to different Quiz</mat-option>
+                          <mat-option *ngFor="let quiz of Quizzes" [value]='quiz.id'>{{quiz.title}}</mat-option>
+                          
+                        </mat-select>
+
+                      </mat-form-field>
+
+
+                   
+                    
+                    
+                       
+                 
+                    
+
+                    
+    
+                    
+                   
+                    
+                    <button mat-raised-button color="primary" type="submit" [disabled]="editQuestionForm.invalid" style="margin-right: 10px;margin-top: 20px;;">Save</button>
+
+                    </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

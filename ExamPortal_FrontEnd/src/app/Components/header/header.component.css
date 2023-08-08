@@ -1,0 +1,9 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .profile-photo{
+    height: 7vh;
+    width: auto;
+    border-radius: 50%;
+    background: rgb(192, 188, 188);
+}

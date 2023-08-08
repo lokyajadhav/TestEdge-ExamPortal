@@ -1,0 +1,136 @@
+
+<mat-card class="p-3">
+    <div class="d-flex justify-content-between">
+        <div style="display: flex">
+            <h1 style="margin-right: 70px;">Your Profile Details</h1>
+            <div  >
+                <button mat-mini-fab  style="background-color: rgb(241, 53, 110)" (click)="goBack()"><mat-icon >arrow_back</mat-icon></button>
+            
+            </div>
+        </div>
+        
+        <div>
+            <button mat-mini-fab color="primary" style="color: rgb(240, 238, 232);" ><mat-icon>share</mat-icon></button>
+        </div>
+    </div>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="container d-flex justify-content-center">
+                    <div>
+                        <img src="https://static.thenounproject.com/png/5034901-200.png" alt="image not found!" class="profile-photo">
+                    <div >
+                        <h1 class="mt2"><b>{{user?.firstname+" "+user?.lastname}}</b></h1>
+                    </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="row">
+                    <div class="col-mid-10">
+                        <div class="container  d-flex justify-content-center mb-3">
+                            <mat-card style="width: 70%;">
+                                
+                                <div 
+                                     class="d-flex justify-content-between">
+                                        <div style="margin-left: 2vh;"><h2>about</h2></div>
+                                        <div>
+                                            <button mat-button color="primary"  (click)="openEditBox('about')"><mat-icon>edit</mat-icon></button>
+
+                                        </div>
+                    
+                                        
+                                   
+                                </div>
+                                <div>
+                                    <mat-card-content>
+                                        <mat-card-subtitle>
+                                            {{user?.about}}
+                                        </mat-card-subtitle>
+                                    </mat-card-content>
+                                </div>
+                               
+                            </mat-card>
+                        </div>
+                        <div class=" container text-center d-flex justify-content-center">
+                            
+                           <mat-card style="width: 70%;">
+                            <div class="text-end">
+                                <span>
+                                    <button mat-button color="primary" (click)="openEditBox('profile')"><mat-icon>edit</mat-icon></button>
+            
+                                </span>
+                                
+                            </div>
+                           
+                                <mat-card-content >
+                                    <table class="table table-striped" style="width: 100%;">
+                            
+                                        <tbody>
+                                          <tr >
+                                            
+                                            <td>username</td>
+                                            <td>
+                                                {{user?.username}}
+                                            </td>
+                                           
+                                          </tr>
+                                          <tr >
+                                            
+                                            <td>firstname</td>
+                                            <td>
+                                                {{user?.firstname}}
+                                            </td>
+                                           
+                                          </tr>
+                                          <tr >
+                                            
+                                            <td>lastname</td>
+                                            <td>
+                                                {{user?.lastname}}
+                                            </td>
+                                           
+                                          </tr>
+                                          <tr >
+                                            
+                                            <td>email
+                                            </td>
+                                            <td>
+                                                {{user?.email}}
+                                            </td>
+                                           
+                                          </tr>
+                                          <tr >
+                                            
+                                            <td>role
+                                            </td>
+                                            <td>
+                                                {{user?.role}}
+                                            </td>
+                                           
+                                          </tr>
+                                          <tr >
+                                            
+                                            <td>mobile
+                                            </td>
+                                            <td>
+                                                {{user?.mobile}}
+                                            </td>
+                                           
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </mat-card-content>
+                                
+                                  
+                           </mat-card>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>

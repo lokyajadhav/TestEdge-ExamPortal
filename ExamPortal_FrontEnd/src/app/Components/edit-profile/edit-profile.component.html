@@ -1,0 +1,137 @@
+<div class="bootstrap-wrapper" *ngIf="data == 'about'">
+    <div class="container mt-2">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h1>edit Your Profile</h1>
+            </div>
+            <div>
+                <button mat-mini-fab color="war" type="button" (click)="close()"><mat-icon>close</mat-icon></button>
+    
+            </div>
+        </div>
+        <mat-divider style="background-color: rgb(100, 17, 255);"></mat-divider>
+        <div class="container mt-5" style="width: 70%;">
+            <div>
+                <p class="opacity-50">You can write about yourself and your years of experience, industry, or skills. People also talk about their achievements or previous job experiences.
+                </p>
+            </div>
+            <div>
+                
+                <form [formGroup]="editProfileForm" (ngSubmit)="updatePofile()" mat-dialog-content>
+                    
+                
+                    <mat-form-field appearance="outline" class="about-section" >
+                        <mat-label>About</mat-label>
+                        <textarea matInput placeholder="Bio" formControlName="about" ></textarea>
+                
+                
+                    </mat-form-field>
+                    
+                    <button mat-raised-button color="primary" type="submit" [disabled]="editProfileForm.invalid" style="margin-right: 10px;">Save</button>
+
+                    </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<mat-card class="p-3" *ngIf="data == 'profile'">
+    <div class="d-flex justify-content-between">
+        <div>
+            <h1>edit Your Profile</h1>
+        </div>
+        <div>
+            <button mat-mini-fab color="war" type="button" (click)="close()"><mat-icon>close</mat-icon></button>
+
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-mid-10">
+                        
+                        <div class=" container text-center d-flex justify-content-center">
+                            
+                           <mat-card style="width: 70%;">
+                            
+                           
+                                <mat-card-content >        
+                                            
+                            <form [formGroup]="editProfileForm" (ngSubmit)="updatePofile()" > 
+                               
+                                <mat-form-field appearance="outline" class="example-full-width">
+                                    <mat-label>username</mat-label>
+                                    
+                                    <input matInput type="text" formControlName="username" placeholder="User Name" readonly>
+                                    <mat-error *ngIf="editProfileForm.get('username')?.hasError('required')">UserName required!</mat-error>
+                                    <mat-error *ngIf="editProfileForm.get('username')?.hasError('minlength')">minimun 8 characters required!</mat-error>
+                            
+                            
+                                </mat-form-field>
+                        
+                            
+                            
+                                <mat-form-field appearance="outline" class="example-full-width">
+                                    <mat-label>firstname</mat-label>
+                                    <input matInput type="text" formControlName="firstname" placeholder="firstname" >
+                                    <mat-error *ngIf="editProfileForm.get('firstname')?.hasError('required')">firstname required!</mat-error>
+                            
+                            
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" class="example-full-width">
+                                    <mat-label>lastname</mat-label>
+                                    <input matInput type="text" formControlName="lastname" placeholder="lastname" >
+                                    <mat-error *ngIf="editProfileForm.get('lastname')?.hasError('required')">lastname required!</mat-error>
+                            
+                            
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" class="example-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput type="text" formControlName="email" placeholder="email">
+                                    <mat-error *ngIf="editProfileForm.get('email')?.hasError('required')">email required!</mat-error>
+                                    <mat-error *ngIf="editProfileForm.get('email')?.hasError('email')">Please Check Your email address!</mat-error>
+                            
+                            
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" class="example-full-width">
+                                    <mat-label>Mobile</mat-label>
+                                    <input matInput type="text" formControlName="mobile" placeholder="Mobile" >
+                                    <mat-error *ngIf="editProfileForm.get('mobile')?.hasError('required')">mobile number required!</mat-error>
+                                    <mat-error *ngIf="editProfileForm.get('mobile')?.hasError('minlength')">minimun 10 digits required!</mat-error>
+                                    <mat-error *ngIf="editProfileForm.get('mobile')?.hasError('maxlenght')">Max 10 digits allowed!</mat-error>
+                            
+                            
+                            
+                                </mat-form-field>
+                                <div class="d-flex justify-content-start mt-3">
+                                    <button mat-flat-button color="primary" type="submit" [disabled]="editProfileForm.invalid" style="margin-right: 10px;;">Save</button>
+                                </div>
+                            </form>    
+                                </mat-card-content>
+
+                                  
+                           </mat-card>
+                           
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>
+
+
+
+

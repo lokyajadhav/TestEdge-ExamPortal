@@ -1,0 +1,18 @@
+td {
+    padding-right: 8px;
+  }
+
+table
+{
+    width: 100%;
+}
+  mat-form-field {
+    width: 100%;
+    padding-top: 10px;;
+}
+.example-full-width {
+    width: 100%;
+  }
+a{
+    cursor: pointer;
+}

@@ -1,0 +1,80 @@
+<div class="m-3" >
+    <button mat-mini-fab  style="background-color: rgb(241, 53, 110)" (click)="goBack()"><mat-icon >arrow_back</mat-icon></button>
+
+</div>
+<div class="bootstrap-wrapper">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card class="p-2">
+                    <mat-card-header>
+                      <mat-card-title>
+                        Read the Instructions of the Quiz Carefully!
+                      </mat-card-title>
+                      <mat-card-subtitle>
+                        One More Step to go
+                      </mat-card-subtitle>
+                      
+                    </mat-card-header>
+                    <mat-card-content>
+                       
+                        <h1 class="mt-2">Important Instructions</h1>
+                        <ul>
+                            <li>
+                                This quiz only practice purpose.
+                            </li>
+                            <li>
+                                There are <b>{{Quiz?.number_of_questions}} Questions</b> in this Quiz.
+                            </li>
+                            <li>
+                                You can Score Maximum <b>{{Quiz?.max_marks}} Marks</b> in this Quiz.
+                            </li>
+                            <li>
+                                Each Question carries <b>{{Quiz?.max_marks/Quiz?.number_of_questions}} Marks</b>. No Nagative marks for Wrong Answers.
+                            </li>
+                            <li>
+                                You have to submit the quiz within <b>{{Quiz?.number_of_questions*1}} Minuts</b>.
+                            </li>
+                            <li>
+                                You can attemt this quiz any number of times.
+                            </li>
+                            <li>
+                                All Questions are of MCQ types.
+                            </li>
+                        </ul>
+
+                        
+                        <h1 class="mt-2">Attempting Quiz</h1>
+                        <ul>
+                            <li>
+                                click <b>Start Quiz</b> button to start the Quiz.
+                            </li>
+                            <li>
+                                The time will start the moment you click on the Start button.
+                            </li>
+                            <li>
+                                You cannot resume this quiz, if it interrupted due to any reasons.
+                            </li>
+                            <li>
+                                <b>Scroll Down</b> to move to next questions.
+                            </li>
+                            <li>
+                                click on the <b>Submit Quiz</b> button after completing the Quiz.
+                            </li>
+                            <li>
+                               Quiz will  submitted Automatically after completing the time.
+                            </li>
+                            <li>
+                                Report of the quiz Automatically Generated after the Quiz.
+                            </li>
+                        </ul>
+                    </mat-card-content>
+                       
+                    <mat-card-actions  style="display: flex; justify-content: center;">
+                        <button mat-raised-button color="primary"  (click)="StartQuiz()">Start Quiz</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

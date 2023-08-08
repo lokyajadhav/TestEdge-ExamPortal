@@ -1,0 +1,29 @@
+.description
+{
+    height: auto;
+  max-height: none;
+  overflow: visible;
+}
+.example-card {
+    width: 100%;
+   
+    overflow-y: auto;
+  }
+img{
+    
+    width: 150px;;
+    margin-left: 10%;
+    padding: 10px;;
+}
+.example-header-image
+{
+    background-image: url("https://cdn-icons-png.flaticon.com/128/1754/1754520.png");
+    background-size: cover;
+}
+.active-class {
+  /* Your CSS styles for the active state */
+  background-color: whitesmoke;
+  border-left: 5px solid #3f51b5;
+}
+
+

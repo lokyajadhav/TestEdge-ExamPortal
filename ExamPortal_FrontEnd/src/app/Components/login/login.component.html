@@ -1,0 +1,44 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class=" row ">
+            <div class="col-md-12 mt2">
+                <div class="text-center">
+                    <img src="https://img.freepik.com/free-vector/access-control-system-abstract-concept_335657-3180.jpg?t=st=1690194293~exp=1690194893~hmac=449f7c108f76ae91f4d2bc2d32ad5e40a0b974f7829bc44342b2510c6030f0fe" alt="logo not found" style="height: 115px; width: 120px; border-radius: 50%;">
+                    <h1 mat-dialog-title> Login Here</h1>
+                    
+                    </div>
+                    <form [formGroup]="loginForm" (ngSubmit)="Login()" mat-dialog-content>
+                        <mat-form-field appearance="outline" class="example-full-width">
+                            <mat-label>User Name</mat-label>
+                            <input matInput type="text" formControlName="username" placeholder="User Name">
+                            <mat-error *ngIf="loginForm.get('username')?.hasError('required')">username required!</mat-error>
+                            <mat-error *ngIf="loginForm.get('username')?.hasError('minlength')">minimun 5 characters required!</mat-error>
+                    
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password" placeholder="password">
+                            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">password required!</mat-error>
+                            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">minimun 8 characters required!</mat-error>
+                    
+                    
+                        </mat-form-field>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <span>
+                                    <button mat-raised-button color="primary" [disabled]="loginForm.invalid" type="submit">Login</button>
+                                </span>
+                                <span class="m-2">
+                                    <button mat-raised-button color="accent" type="button" (click)="close()">Close</button>
+                                </span>
+                            </div><span style="color: black;">New User? <a (click)="onClose()" class="pe-auto">Register</a></span>
+                    
+                        </div>
+                    </form>
+                    
+            </div>
+            </div>
+            </div>
+        </div>
+    
+    

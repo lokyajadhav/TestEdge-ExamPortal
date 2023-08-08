@@ -1,0 +1,33 @@
+<div class="m-3" >
+    <button mat-mini-fab  style="background-color: rgb(241, 53, 110)" (click)="goBack()"><mat-icon >arrow_back</mat-icon></button>
+
+</div>
+
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <mat-card >
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image" ></div>
+                <mat-card-title>
+                    {{Quiz.title}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{Quiz.id}}
+                </mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://cdn-icons-png.flaticon.com/128/10061/10061823.png" alt="Photo of a Shiba Inu"  class="text-center">
+
+            <mat-card-content>
+                <p>{{Quiz.description}}</p>
+            </mat-card-content>
+           <div class="container ">
+
+           
+                <button mat-raised-button color="primary" class="m-2"  [routerLink]="['/userDashboard/instructions']" [queryParams]="{ id: Quiz.id}">Start</button>
+
+                <button mat-stroked-button color="accent" class="m-2" >Max Marks: {{Quiz.max_marks}}</button>
+                <button mat-stroked-button color="accent" class="m-2" >Questions: {{Quiz.number_of_questions}}</button>
+            </div>
+        </mat-card>
+    </div>
+</div>

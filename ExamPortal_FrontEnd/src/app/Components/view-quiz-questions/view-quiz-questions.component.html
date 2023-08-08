@@ -1,0 +1,51 @@
+<div class="mt-2" >
+    <button mat-mini-fab  style="background-color: rgb(241, 53, 110)" routerLink="/adminDashboard/viewQuizzes"><mat-icon >arrow_back</mat-icon></button>
+
+</div>
+<div class="pt-3 d-flex justify-content-between container">
+    <div>
+    <h1>Questions of {{quizTitle}}</h1>
+    </div>
+    <div>
+       
+        <button mat-raised-button color="primary"  (click)="addQuestionFormOpen()"><mat-icon>add</mat-icon>Add Question</button>
+    </div>
+
+</div>
+<mat-card *ngFor="let question of QuizQuestions; let i=index" style="margin-bottom: 10px;">
+<mat-card-content>
+    <p>
+        <b>Q {{i+1}})  </b><span [innerHTML]="question.content" ></span>
+    </p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <p><b>1)</b>{{question.option_A}}</p>
+            </div>
+            <div class="col-md-6">
+                <p><b>2)</b>{{question.option_B}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p><b>3)</b>{{question.option_C}}</p>
+            </div>
+            <div class="col-md-6">
+                <p><b>4)</b>{{question.option_D}}</p>
+            </div>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="d-flex justify-content-between pt-4">
+        <div >
+            Correct Answer: <b>{{question.correct_answer}}</b>
+        </div>
+        <div>
+            <button mat-button (click)="openEditBox(question.id)" color="primary" ><span ><mat-icon>edit</mat-icon></span></button>
+              
+                  <button mat-button color="warn" (click)="deleteQuestionOpen(question.id)" ><mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+</mat-card-content>
+
+</mat-card>

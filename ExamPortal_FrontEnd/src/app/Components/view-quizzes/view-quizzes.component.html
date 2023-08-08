@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-between mt-2">
+    <div mat-subheader>All Quizzes</div>
+
+    <div  >
+      <button   mat-raised-button style="background-color: #97f1fd;"  (click)="addQuizFormOpen()"> <mat-icon >add</mat-icon><span >Add Quiz</span></button>
+
+    </div>
+  </div>
+    <div class="bootstrap-wrapper">
+    <div class="container" >
+      <div class="row">
+        <div  *ngFor="let quiz of quizzes" >
+          <mat-card class="example-card mb-4 shadow"  [ngClass]="{'active-class': quiz.isActive}">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image" >
+                
+              </div>
+
+              <mat-card-title>{{quiz.title}}</mat-card-title>
+              <mat-card-subtitle>{{quiz.id}}</mat-card-subtitle>
+              <mat-slide-toggle  [checked]="quiz.isActive" (change)="onSlideToggleChange(quiz)">
+                <span *ngIf="quiz.isActive == true" style="color: green;" ><b>Active</b></span>
+                <span *ngIf="quiz.isActive == false" style="color:red"><b>inActive</b></span>
+              </mat-slide-toggle>
+             
+            </mat-card-header >
+            <img mat-card-image src="https://cdn-icons-png.flaticon.com/128/10061/10061823.png" alt="Photo of a Shiba Inu"  class="text-center">
+            <mat-card-content>
+              <p>
+                <app-category-show-more [text]="quiz.description" [words]="60" ></app-category-show-more>
+
+              
+              </p>
+            </mat-card-content>
+            
+              
+           
+              <div class="container test">
+                
+  
+               
+                <mat-card-actions >
+                  <button mat-raised-button color="primary" style="margin-right: 10px;;" [routerLink]="['/adminDashboard/viewQuestions']" [queryParams]="{ id: quiz.id, title: quiz.title}">Questions</button>
+
+                  <button mat-stroked-button color="accent" style="margin-right: 10px;;">Max Marks: {{quiz.max_marks}}</button>
+                  <button mat-stroked-button color="accent" style="margin-right: 10px;;" >Questions: {{quiz.number_of_questions}}</button>
+                  <button mat-raised-button color="primary" style="margin-right: 10px;;">Attempts</button>
+                <button mat-button (click)="openEditBox(quiz.id)" color="primary" ><span ><mat-icon>edit</mat-icon></span></button>
+              
+                  <button mat-button color="warn" (click)="deleteQuizOpen(quiz.id)" ><mat-icon>delete</mat-icon></button>
+                 
+                </mat-card-actions>
+               </div>
+            
+            
+          </mat-card>
+      </div>      
+      </div>
+    </div>
+  </div> 

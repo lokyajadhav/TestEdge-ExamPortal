@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>Available Categories</div>
+       
+        <mat-list-item>
+            <button  style="display: flex; align-items: center;" [routerLink]="['/userDashboard']" [queryParams]="{categoryID:'allQuizzes'}" > <mat-icon >quiz</mat-icon><span style=" margin-left: 5px;">All Quizzes</span></button>
+
+        </mat-list-item>
+        <mat-list-item *ngFor="let category of Categories" style="margin-left: 10px;">
+            <button   style="display: flex; align-items: center;" [routerLink]="['/userDashboard']" [queryParams]="{categoryID: category.id, categoryTitle:category.title}"  > <mat-icon >assignment</mat-icon><span style=" margin-left: 5px;;">{{category.title}}</span></button>
+
+        </mat-list-item>
+       
+       
+        
+       
+        
+    </mat-action-list>
+</mat-card>

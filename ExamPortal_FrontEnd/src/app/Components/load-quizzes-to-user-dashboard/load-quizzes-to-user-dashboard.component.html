@@ -1,0 +1,50 @@
+<div class="mt-3">
+    <h1>Available Quizzes</h1>
+</div>
+<div *ngIf="quizzes?.length == 0">
+    <mat-card>
+        <mat-card-content>
+            <h1 class="opacity-75">No Quizzes Available!</h1>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+<div class="bootstrap-wrapper">
+    <div class="container-fluid" >
+      <div class="row">
+        <div class="col-md-6" *ngFor="let quiz of quizzes" >
+          <mat-card class="example-card mb-4 shadow"  >
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image" ></div>
+
+              <mat-card-title>{{quiz?.title}}</mat-card-title>
+              <mat-card-subtitle>{{categoryTitle?categoryTitle:quiz.id}}</mat-card-subtitle>
+              
+            </mat-card-header >
+            <mat-card-content>
+                
+                <p class="truncate">
+                    {{quiz?.description}}
+                </p>
+             
+            </mat-card-content>
+            
+              
+           
+              <mat-card-actions >
+                <button mat-raised-button color="primary" style="margin-right: 10px;;" [routerLink]="['/userDashboard/instructions']" [queryParams]="{id:quiz.id}"><span>Start</span></button>
+                <button mat-stroked-button color="accent" style="margin-right: 10px;;" [routerLink]="['/userDashboard/viewQuiz']" [queryParams]="{quizID:quiz.id}"><span>View</span></button>
+                <button mat-button color="accent"><span>Questions: {{quiz.number_of_questions}}</span></button>
+
+                <button mat-button color="accent"><span>M.M: {{quiz.max_marks}}</span></button>
+
+            
+                
+              </mat-card-actions>
+           
+          </mat-card>
+      </div>      
+      </div>
+    </div>
+  </div> 

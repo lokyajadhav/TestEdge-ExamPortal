@@ -1,0 +1,85 @@
+<div class="text-center">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/002/737/795/small_2x/online-registration-form-and-sign-in-button-concept-illustration-login-illustration-online-registration-illustrations-free-vector.jpg" alt="logo not found" style="height: 115px; width: 120px; border-radius: 50%;">
+    <h1 mat-dialog-title> Register Here</h1>
+    
+    </div>
+<form [formGroup]="registerForm" (ngSubmit)="Register()" mat-dialog-content>
+    <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>username</mat-label>
+        <input matInput type="text" formControlName="username" placeholder="User Name">
+        <mat-error *ngIf="registerForm.get('username')?.hasError('required')">UserName required!</mat-error>
+        <mat-error *ngIf="registerForm.get('username')?.hasError('minlength')">minimun 8 characters required!</mat-error>
+
+
+    </mat-form-field>
+    
+    
+
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>firstname</mat-label>
+            <input matInput type="text" formControlName="firstname" placeholder="firstname">
+            <mat-error *ngIf="registerForm.get('firstname')?.hasError('required')">firstname required!</mat-error>
+    
+    
+        </mat-form-field></td>
+        <td><mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>lastname</mat-label>
+            <input matInput type="text" formControlName="lastname" placeholder="lastname">
+            <mat-error *ngIf="registerForm.get('lastname')?.hasError('required')">lastname required!</mat-error>
+    
+    
+        </mat-form-field></td>
+      </tr></table>
+
+    <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email" placeholder="email">
+        <mat-error *ngIf="registerForm.get('email')?.hasError('required')">email required!</mat-error>
+        <mat-error *ngIf="registerForm.get('email')?.hasError('email')">Please Check Your email address!</mat-error>
+
+
+    </mat-form-field>
+   
+    
+    <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Mobile</mat-label>
+        <input matInput type="text" formControlName="mobile" placeholder="Mobile">
+        <mat-error *ngIf="registerForm.get('mobile')?.hasError('required')">mobile number required!</mat-error>
+        <mat-error *ngIf="registerForm.get('mobile')?.hasError('minlength')">minimun 10 digits required!</mat-error>
+        <mat-error *ngIf="registerForm.get('mobile')?.hasError('maxlenght')">Max 10 digits allowed!</mat-error>
+
+
+
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>About</mat-label>
+        <textarea matInput placeholder="Bio" formControlName="about"></textarea>
+
+
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Password">
+        <mat-error *ngIf="registerForm.get('password')?.hasError('required')">password required!</mat-error>
+        <mat-error *ngIf="registerForm.get('password')?.hasError('minlength')">minimun 8 characters required!</mat-error>
+
+
+    </mat-form-field>
+    <div class="d d-flex justify-content-between">
+
+        <div>
+            <span>
+                <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+            </span>
+            <span class="m-2">
+                <button mat-raised-button color="accent" type="button" (click)="reset()">Reset</button>
+            </span>
+        </div><span style="color: black;">Existing User? <a (click)="onClose()" class="pe-auto">Login</a></span>
+
+    </div>
+    </form>
+        
+
+

@@ -1,0 +1,16 @@
+.profile-photo{
+    height: 20vh;
+    width: auto;
+    border-radius: 50%;
+}
+mat-form-field {
+    width: 100%;
+    padding-top: 10px;;
+    
+}
+.about-section
+{
+    height: 30vh;
+}
+
+

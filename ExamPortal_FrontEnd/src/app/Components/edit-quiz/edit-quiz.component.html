@@ -1,0 +1,88 @@
+<div class="bootstrap-wrapper" >
+    <div class="container mt-2">
+        <div class="d-flex justify-content-between">
+            <div >
+                <h1>Edit Quiz</h1>
+            </div>
+            <div>
+                <button mat-mini-fab color="war" type="button" (click)="close()"><mat-icon>close</mat-icon></button>
+    
+            </div>
+        </div>
+        <mat-divider style="background-color: rgb(100, 17, 255);"></mat-divider>
+        <div class="container mt-5" style="width: 70%;">
+            <div>
+                <p class="opacity-50">You can edit Quiz Details here
+                </p>
+            </div>
+            <div>
+                
+                <form [formGroup]="editQuizForm" (ngSubmit)="editQuiz()" mat-dialog-content>
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>Quiz ID</mat-label>
+                        <input matInput placeholder="Quiz ID" formControlName="id" readonly="true">
+                        <mat-error *ngIf="editQuizForm.get('id')?.hasError('required')">Quiz Id required!</mat-error>
+                        <mat-error *ngIf="editQuizForm.get('id')?.hasError('minlength')">minimun 10 digits required!</mat-error>
+                        <mat-error *ngIf="editQuizForm.get('id')?.hasError('maxlength')">Max 10 digits allowed!</mat-error>
+
+                
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>Title</mat-label>
+                        <input matInput placeholder="title" formControlName="title" >
+                        <mat-error *ngIf="editQuizForm.get('title')?.hasError('required')">Title required!</mat-error>
+
+                
+                    </mat-form-field>
+                
+                    <mat-form-field appearance="outline" class="about-section" >
+                        <mat-label>Description</mat-label>
+                        <textarea matInput placeholder="description" formControlName="description" ></textarea>
+                        <mat-error *ngIf="editQuizForm.get('description')?.hasError('required')">Description required!</mat-error>
+
+                
+                    </mat-form-field>
+                    <mat-form-field appearance="outline"  >
+                        <mat-label>Max Marks</mat-label>
+                        <input matInput placeholder="Max marks" type="number" formControlName="max_marks" >
+                        <mat-error *ngIf="editQuizForm.get('max_marks')?.hasError('required')">Max_marks required!</mat-error>
+
+                
+                    </mat-form-field>
+                    <mat-form-field appearance="outline"  >
+                    <mat-label>Max No.of Questions</mat-label>
+                        <input matInput placeholder="number of Questions" type="number" formControlName="number_of_questions" >
+                        <mat-error *ngIf="editQuizForm.get('number_of_questions')?.hasError('required')">total numer of questions required!</mat-error>
+
+                
+                    </mat-form-field>
+                   
+                        
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Quiz Category</mat-label>
+                        <mat-select formControlName="cat_id">
+                          <mat-option value="" disabled="true">Select Category</mat-option>
+                          <mat-option *ngFor="let category of categories" [value]='category.id'>{{category.title}}</mat-option>
+                          
+                        </mat-select>
+                        <mat-error *ngIf="editQuizForm.get('cat_id')?.hasError('required')">Please select a category!</mat-error>
+
+                      </mat-form-field>
+    
+                    
+                    <div >
+                        <mat-slide-toggle formControlName="isActive" >Publish Quiz</mat-slide-toggle>
+                    </div>
+                    
+                    <button mat-raised-button color="primary" type="submit" [disabled]="editQuizForm.invalid" style="margin-right: 10px;margin-top: 20px;;">Save Changes</button>
+
+
+                    </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

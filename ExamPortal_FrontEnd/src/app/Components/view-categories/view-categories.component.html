@@ -1,0 +1,87 @@
+  
+    <!--
+      <mat-card>
+         <mat-list >
+        <div mat-subheader>All Categories</div>
+        <mat-list-item *ngFor="let category of categories" >
+            
+          <mat-icon mattListItemIcon style="color: rgb(105, 11, 160);">category</mat-icon>
+          <div matListItemTile><b>{{category.title}}</b>[ID: {{category.id}}]</div>
+          
+          
+          <div  class="description" matListItemLine>
+
+            <app-category-show-more [text]="category.description" [words]="100" ></app-category-show-more>
+            </div>
+
+            <div class="container mt20 mb20" >
+              <button   mat-raised-button color="accent" style="display: flex; align-items: center;" > <mat-icon >delete</mat-icon><span style=" margin-left: 5px;;">Delete Categories</span></button>
+      
+            </div> 
+        </mat-list-item>
+        
+      </mat-list>
+      <div class="container mt20 mb20" style="display: flex; justify-content: center ; margin-bottom: 20px;">
+        <button   mat-raised-button color="accent" style="display: flex; align-items: center;" (click)="addCategoryFormOpen()"> <mat-icon >add</mat-icon><span style=" margin-left: 5px;;">Add Categories</span></button>
+
+      </div>
+</mat-card> -->
+
+
+
+
+ 
+  
+  
+  
+
+  <div class="d-flex justify-content-between mt-2">
+    <div mat-subheader>All Categories</div>
+
+    <div  >
+      <button   mat-raised-button style="background-color: #97f1fd;"  (click)="addCategoryFormOpen()"> <mat-icon >add</mat-icon><span >Add Categories</span></button>
+
+    </div>
+  </div>
+    <div class="bootstrap-wrapper">
+    <div class="container" >
+      <div class="row">
+        <div class="col" *ngFor="let category of categories" >
+          <mat-card class="example-card mb-4 shadow"  >
+            <mat-card-header>
+              <div mat-card-avatar style="margin-right: -25px;">
+                <mat-icon  style="color: rgb(18, 161, 228);">category</mat-icon>
+              </div>
+
+              <mat-card-title>{{category.title}}</mat-card-title>
+              <mat-card-subtitle>{{category.id}}</mat-card-subtitle>
+              
+            </mat-card-header >
+            <img mat-card-image src="https://cdn-icons-png.flaticon.com/512/3502/3502688.png" alt="Photo of a Shiba Inu"  class="text-center">
+            <mat-card-content>
+              <p>
+                <app-category-show-more [text]="category.description" [words]="60" ></app-category-show-more>
+
+              
+              </p>
+            </mat-card-content>
+            
+              
+            <div class="actions">
+              <mat-card-actions >
+            
+              <button mat-button (click)="openEditBox(category.id)" ><span style="color: rgb(92, 217, 248);"><mat-icon>edit</mat-icon></span></button>
+            
+                <button mat-button color="warn" (click)="deleteCategoryOpen(category.id)" ><mat-icon>delete</mat-icon></button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+      </div>      
+      </div>
+    </div>
+  </div> 
+
+
+
+
+

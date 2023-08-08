@@ -1,0 +1,72 @@
+
+<div class="bootstrap-wrapper">
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-2 mt-5" style="position: sticky;">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Time Remaining</mat-card-title>
+                        <mat-card-subtitle>Quiz will Autmatically submitted once timer reaches to <b>00:00:00</b></mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content style="margin: auto;">
+                        <h1>{{getTimeFormat()}}</h1>
+                        <mat-spinner mode="determinate" [value]="(Timer/(TotalTimer))*100">50%</mat-spinner>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+           
+            <div class="col-md-8">
+               <h1>On going Quiz -<b>{{Quiz.title}}</b></h1>
+               <mat-card *ngFor="let question of Questions; let i = index" class="mt-2">
+                <mat-card-content>
+                  <p ><span><b>Q {{i+1}}).</b></span> <span [innerHTML]="question.content"></span></p>  
+                  <mat-divider></mat-divider>
+
+                  <mat-radio-group
+                        aria-labelledby="example-radio-group-label"
+                        class="example-radio-group"
+                        [(ngModel)]="question.givenAnswer">
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <mat-radio-button class="example-radio-button"  [value]="question.option_A">
+                                    {{question.option_A}}
+                                </mat-radio-button>
+                            </div>
+                            
+                            
+                            <div class="col-md-6">
+                                <mat-radio-button class="example-radio-button"  [value]="question.option_B">
+                                    {{question.option_B}}
+                                </mat-radio-button>
+                            </div>
+                          </div>
+                          <div class="row mt-2">
+                            <div class="col-md-6">
+                                <mat-radio-button class="example-radio-button"  [value]="question.option_C">
+                                    {{question.option_C}}
+                                </mat-radio-button>
+                            </div>
+                            
+                            
+                            <div class="col-md-6">
+                                <mat-radio-button class="example-radio-button"  [value]="question.option_D">
+                                    {{question.option_D}}
+                                </mat-radio-button>
+                            </div>
+                          </div>
+                        
+                    </mat-radio-group>
+
+                </mat-card-content>
+               
+               </mat-card>
+               <div style="display: flex; justify-content: center ; margin-top: 30px;;">
+                <button mat-raised-button color="primary" (click)="SubmitQuiz()">Submit Quiz</button>
+            </div>
+            </div>
+            <div class="col-md-2">
+                instructions
+            </div>
+        </div>
+    </div>
+</div>
